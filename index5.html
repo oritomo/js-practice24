@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapの練習</title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    {
+      const myMap = new Map([['place','ドイツ'],['hair','短髪']]);
+      myMap.set('name','ゲッツェ');
+      myMap.set('color','イエロー');
+      myMap.set('team','ドルトムント');
+
+      //要素数の取得
+      console.log(myMap.size); //5
+
+      //キーの要素を追加
+      console.log(myMap.get('name')); //ゲッツェ
+      console.log(myMap.get('color')); //イエロー
+      console.log(myMap.get('team')); //イエロー
+
+      //Mapの中身を表示するにはスプレッド構文
+      console.log([...myMap]);
+
+      //指定したキーの要素が存在するかどうか判定
+      console.log(myMap.has('color')); //true
+      
+      //キーを順に取得
+      for(let key of myMap.keys()){
+        console.log(key); //place,hair,name,color,team
+      }
+      //すべてのキーの取得
+      console.log([...myMap.keys()]); //["place","hair", "name", "color", "team"]
+
+      //値を順に取得
+      for(let value of myMap.values()){
+        console.log(value); //ドイツ,ゲッツェ,短髪,イエロー,ドルトムント
+      }
+      //すべての値を取得
+      console.log([...myMap.values()]); //["ドイツ", "ゲッツェ","短髪", "イエロー", "ドルトムント"]
+
+      //キー/値を順に取得
+      for (let [key,value] of myMap){
+        console.log(key); //place,hair,name,color,team
+        console.log(value); //ドイツ,ゲッツェ,短髪,イエロー,ドルトムント
+      }
+
+      //指定したキーの取得
+      myMap.delete('team');
+      console.log(myMap.get('team')); //undefined
+
+      //すべてのキー/要素の削除
+      myMap.clear();
+      console.log(myMap.size); //0
+
+      //利点としてはオブジェクト{}やNaNもキーにできる
+      //マップのサイズを取得できる
+      //Objectオブジェクトとは異なり完全に空の連想配列を用意可能
+    }
+  </script>
+</body>
+
+</html>
